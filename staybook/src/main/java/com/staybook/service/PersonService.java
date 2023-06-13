@@ -6,6 +6,9 @@ import com.staybook.model.Person;
 
 public interface PersonService {
 	
-	List<Person> findAllPersons();
+	public List<Person> findAllPersons();
+	
+	public Person findPersonById(Long personid);
+	
 
 }
