@@ -9,4 +9,5 @@ import com.starpg.model.Person;
 @Repository
 public interface PersonDAO extends JpaRepository<Person, Long> {
 
+	
 }

@@ -38,7 +38,7 @@ public class PersonController {
 	}
 	
 	@PostMapping("/addPerson")
-	public ResponseEntity<Person> addPerson(@RequestBody Person personDto) throws Exception {		
+	public ResponseEntity<Person> addPerson(@RequestBody Person personDto) {		
 		Person person = personService.savePerson(personDto);
 		return new ResponseEntity<>(person, HttpStatus.OK);
 	}
