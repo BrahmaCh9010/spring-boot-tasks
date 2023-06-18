@@ -14,3 +14,15 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+        
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
+    api-docs:
+      enabled: true
+  swagger:
+    v2:
+      use-default-response-messages: false
+      tags-order: ascending
+      

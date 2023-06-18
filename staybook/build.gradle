@@ -14,6 +14,10 @@ repositories {
 	maven { url 'https://repo.spring.io/snapshot' }
 }
 
+//configurations.all {
+  //  exclude group: 'com.fasterxml.jackson.core', module: 'jackson-databind'
+//}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -30,7 +34,12 @@ dependencies {
     
     implementation 'javax.servlet:jstl'
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-    implementation 'org.springdoc:springdoc-openapi-ui:1.6.9'
+    
+    //swagger dependencies
+    //implementation 'io.springfox:springfox-boot-starter:3.0.0'
+    //implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.9' 
+ 	compileOnly 'org.glassfish.jaxb:jaxb-runtime:2.3.3'
     
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }
