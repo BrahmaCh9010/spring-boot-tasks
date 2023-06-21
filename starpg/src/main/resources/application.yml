@@ -15,15 +15,10 @@ spring:
   jpa:
     hibernate:
       show-sql: true
+#      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         
-springfox:
-  documentation:
-    auto-startup: true
-    swagger-ui:
-      enabled: true
-    api-docs:
-      enabled: true
+
 

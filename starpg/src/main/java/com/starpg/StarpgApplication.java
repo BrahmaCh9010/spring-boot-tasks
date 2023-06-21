@@ -5,9 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 
 @SpringBootApplication
-@OpenAPIDefinition
+@OpenAPIDefinition(info = @Info(title = "Spring Boot Training",version = "1.0",description = "Person Info"))
 public class StarpgApplication {
 
 	public static void main(String[] args) {

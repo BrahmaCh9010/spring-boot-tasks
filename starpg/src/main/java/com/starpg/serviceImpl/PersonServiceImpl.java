@@ -26,11 +26,11 @@ public class PersonServiceImpl implements PersonService{
 	}
 
 	@Override
-	public Person findPersonById(Long personid) {
+	public Optional<Person> findPersonById(Long personid) {
 		Optional<Person> entity = personDao.findById(personid);
 		if (entity.isPresent())
-			return entity.get();
-		return null;
+			return entity;
+		return Optional.empty();
 	}
 
 	@Override
