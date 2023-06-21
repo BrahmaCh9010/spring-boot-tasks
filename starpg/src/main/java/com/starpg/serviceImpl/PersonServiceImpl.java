@@ -38,4 +38,15 @@ public class PersonServiceImpl implements PersonService{
 		return personDao.save(person);
 	}
 
+	@Override
+	public void deleteById(Long personid) {
+		Optional<Person> person = personDao.findById(personid);
+		if(person.isPresent()) {
+			personDao.deleteById(personid);
+		}
+		else {
+			log.debug(" person not find to delete");
+		}
+	}
+
 }

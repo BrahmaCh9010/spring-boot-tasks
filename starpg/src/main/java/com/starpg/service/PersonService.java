@@ -13,6 +13,8 @@ public interface PersonService {
 	public Optional<Person> findPersonById(Long personid);
 	
 	public Person savePerson(Person person);
+
+	public void deleteById(Long personid);
 	
 
 }

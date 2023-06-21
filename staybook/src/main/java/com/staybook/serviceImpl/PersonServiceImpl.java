@@ -26,11 +26,27 @@ public class PersonServiceImpl implements PersonService{
 	}
 
 	@Override
-	public Person findPersonById(Long personid) {
+	public Optional<Person> findPersonById(Long personid) {
 		Optional<Person> entity = personDao.findById(personid);
 		if (entity.isPresent())
-			return entity.get();
-		return null;
+			return entity;
+		return Optional.empty();
+	}
+
+	@Override
+	public Person savePerson(Person person) {
+		return personDao.save(person);
+	}
+
+	@Override
+	public void deleteById(Long personid) {
+		Optional<Person> person = personDao.findById(personid);
+		if(person.isPresent()) {
+			personDao.deleteById(personid);
+		}
+		else {
+			log.debug(" person not find to delete");
+		}
 	}
 
 }
