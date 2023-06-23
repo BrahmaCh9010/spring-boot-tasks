@@ -28,4 +28,6 @@ public class Person {
 	private Long aadhaarNumber;
 	
 	private Long voterId;
+	
+	private Long personAddressId;
 }
