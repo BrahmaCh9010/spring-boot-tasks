@@ -11,6 +11,7 @@ function NavBarCode() {
       <nav className="navbar">
         <div className="nav-container">
           <div className="nav-logo">
+          
             <span>S</span>tay
             <span>B</span>ook
           </div>
