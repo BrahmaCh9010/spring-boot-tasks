@@ -1,10 +1,15 @@
 package com.staybook.controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.staybook.model.Person;
 import com.staybook.service.PersonService;
+import com.staybook.utill.PDFGenerator;
 
 
 @RestController
@@ -73,4 +79,16 @@ public class PersonController {
 	    }
 	  }
 
+	@GetMapping(value = "/persons/pdfGenerate",
+            produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<InputStreamResource> personPDFGenerate() throws IOException {
+        List<Person> persons = (List<Person>) personService.findAllPersons();
+
+        ByteArrayInputStream bis = PDFGenerator.customerPDFReport(persons);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "inline; filename=persons.pdf");
+
+        return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(bis));
+    }
 }

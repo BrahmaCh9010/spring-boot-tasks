@@ -10,7 +10,7 @@ spring:
     url: jdbc:postgresql://localhost:5433/taskDB
   jpa:
     hibernate:
-#      ddl-auto: update
+      ddl-auto: update
       show-sql: true
     properties:
       hibernate:
