@@ -1,16 +1,16 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
-import NavBarCode from './components/NavBarCode'
-import { Login } from './components/Pages/Login';
+import React from 'react'
+import './App.css'
+import MainLayout from './Layout/MainLayout'
 
-
-
-const App = () => {
+function App() {
   return (
-      <NavBarCode></NavBarCode>
-
-   
+    <MainLayout>
+      <div className='title'>
+        <h2>Welcome to StayBook</h2>
+      </div>
+    </MainLayout>
     
   )
 }
-export default App;
+
+export default App
