@@ -19,6 +19,18 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-        
+security:
+  oauth2:
+    client:
+      clientId: staybook
+      clientSecret: password
+      accessTokenUri: http://localhost:8080/oauth/token
+      user-authorization-uri: http://localhost:8080/oauth/authorize
+    resource:
+      token-info-uri: http://localhost:8080/oauth/check_token
+      user-info-uri:  http://localhost:8080/userinfo
+    resourceserver:
+      jwt:
+        issuer-uri: http://localhost:8080/oauth/token       
 
 

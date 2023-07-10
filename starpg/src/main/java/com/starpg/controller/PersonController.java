@@ -19,9 +19,12 @@ import com.starpg.dao.PersonDAO;
 import com.starpg.model.Person;
 import com.starpg.service.PersonService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1/person")
+@SecurityRequirement(name = "bearerAuth")
 public class PersonController {
 	
 	@Autowired

@@ -79,16 +79,19 @@ public class PersonController {
 	    }
 	  }
 
-	@GetMapping(value = "/persons/pdfGenerate",
-            produces = MediaType.APPLICATION_PDF_VALUE)
-    public ResponseEntity<InputStreamResource> personPDFGenerate() throws IOException {
-        List<Person> persons = (List<Person>) personService.findAllPersons();
-
-        ByteArrayInputStream bis = PDFGenerator.customerPDFReport(persons);
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", "inline; filename=persons.pdf");
-
-        return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(bis));
-    }
+		/*
+		 * @GetMapping(value = "/persons/pdfGenerate", produces =
+		 * MediaType.APPLICATION_PDF_VALUE) public ResponseEntity<InputStreamResource>
+		 * personPDFGenerate() throws IOException { List<Person> persons =
+		 * (List<Person>) personService.findAllPersons();
+		 * 
+		 * //ByteArrayInputStream bis = PDFGenerator.customerPDFReport(persons);
+		 * 
+		 * HttpHeaders headers = new HttpHeaders(); headers.add("Content-Disposition",
+		 * "inline; filename=persons.pdf");
+		 * 
+		 * // return
+		 * ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF).
+		 * body(new InputStreamResource(bis)); }
+		 */
 }
