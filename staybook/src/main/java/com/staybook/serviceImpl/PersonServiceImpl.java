@@ -21,16 +21,21 @@ public class PersonServiceImpl implements PersonService{
 	
 	@Override
 	public List<Person> findAllPersons() {
-		
+		log.info("Person details getting successful");
 		return personDao.findAll();
 	}
 
 	@Override
 	public Optional<Person> findPersonById(Long personid) {
 		Optional<Person> entity = personDao.findById(personid);
-		if (entity.isPresent())
+		if (entity.isPresent()) {
+			log.info("Person details getting by id successful");
 			return entity;
+		}
+		else {
+			log.info("Person details are empty");
 		return Optional.empty();
+		}
 	}
 
 	@Override

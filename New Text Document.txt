@@ -1,0 +1,181 @@
+[18:52] Satish Kumar Jelli
+
+import java.util.Properties;
+
+ 
+
+import javax.mail.Folder;
+
+import javax.mail.Message;
+
+import javax.mail.MessagingException;
+
+import javax.mail.NoSuchProviderException;
+
+import javax.mail.Session;
+
+import javax.mail.Store;
+
+ 
+
+public class App 
+
+{
+
+    public static void main(String[] args) {
+
+        recieveEmail("appservice@primetgi.com","Pr1me@1234");
+
+    }
+
+
+    public static void recieveEmail(String username, String pwd){
+
+
+     try {
+
+            Properties props = new Properties();
+
+            props.setProperty("mail.store.protocol", "imaps");
+
+       //   props.put("mail.imap.ssl.enable", "true");
+
+       //   props.put("mail.imap.auth.login.disable", "true");
+
+
+                // Create a Session
+
+                Session session = Session.getDefaultInstance(props);
+
+
+          //      Properties s = session.getProperties();
+
+          //      System.out.println("Email No :" + s);
+
+
+                // Set the debug mode for the Session
+
+                session.setDebug(true);
+
+ 
+
+                // Create an IMAP Store and connect
+
+                Store store = session.getStore("imaps");
+
+                store.connect("outlook.office365.com", 993, username, pwd);
+
+
+                Folder emailFolder = store.getFolder("INBOX");
+
+                emailFolder.open(Folder.READ_ONLY);
+
+                Message messages[] = emailFolder.getMessages();
+
+                for (int i = messages.length-3 ; i < messages.length; i++) {
+
+                    System.out.println("Email No :"+i+1);
+
+                    System.out.println("Subject :" + messages.getClass());
+
+                }
+
+                emailFolder.close();
+
+                store.close();
+
+          }catch(NoSuchProviderException nspe) {
+
+              nspe.printStackTrace();
+
+          }catch(MessagingException me) {
+
+              me.printStackTrace();
+
+          }
+
+
+    }
+
+
+
+    public static void main2(String[] args) {
+
+        String host = "imap.gmail.com"; // Gmail IMAP server hostname
+
+        String username = "satishkumar0840@gmail.com"; // Your Gmail address
+
+        String password = "Satish@0840"; // Your Gmail password
+
+ 
+
+        Properties properties = new Properties();
+
+        properties.setProperty("mail.store.protocol", "imap");
+
+        properties.setProperty("mail.imap.host", host);
+
+        properties.setProperty("mail.imap.port", "993");
+
+        properties.setProperty("mail.imap.ssl.enable", "true");
+
+ 
+
+        try {
+
+            Session session = Session.getInstance(properties);
+
+            session.setDebug(true);
+
+
+            Store store = session.getStore("imap");
+
+            store.connect(host, username, password);
+
+ 
+
+            Folder inbox = store.getFolder("INBOX");
+
+            inbox.open(Folder.READ_ONLY);
+
+ 
+
+            Message[] messages = inbox.getMessages();
+
+ 
+
+            for (Message message : messages) {
+
+                String subject = message.getSubject();
+
+                System.out.println("Subject: " + subject);
+
+            }
+
+ 
+
+            inbox.close(false);
+
+            store.close();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+
+<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+<dependency>
+<groupId>javax.mail</groupId>
+<artifactId>javax.mail-api</artifactId>
+<version>1.6.2</version>
+</dependency>
+
+<dependency>
+<groupId>com.sun.mail</groupId>
+<artifactId>javax.mail</artifactId>
+<version>1.6.2</version>
+</dependency>

@@ -10,16 +10,17 @@ import javax.persistence.Id;
 
 import lombok.Data;
 
-@Entity
-@Data
+//@Entity
+//@Data
 public class Resume {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Header header;
-	private ArrayList<Education> education;
-	private ArrayList<Experience> experience;
-	private Map<String, String> skills;
-	private ArrayList<Project> projects;
+	/*
+	 * @Id
+	 * 
+	 * @GeneratedValue(strategy = GenerationType.IDENTITY) private Header header;
+	 * private ArrayList<Education> education; private ArrayList<Experience>
+	 * experience; private Map<String, String> skills; private ArrayList<Project>
+	 * projects;
+	 */
 
 }

@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -12,7 +14,7 @@ import lombok.Setter;
 @Entity
 @Setter
 @Data
-@Table(name = "address", schema = "staybook")
+@Table(name = "address", schema = "public")
 public class Address {
 	
 	@Id
@@ -24,6 +26,4 @@ public class Address {
 	private String landmark;	
 	private String street;	
 	private Integer pincode; 
-
-	
 }

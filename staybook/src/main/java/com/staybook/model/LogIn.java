@@ -8,16 +8,17 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Entity
-@Data
-@Table
+//@Entity
+//@Data
+//@Table
 public class LogIn {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long logInId;
-	private String userName;
-	private Long password;
+	/*
+	 * @Id
+	 * 
+	 * @GeneratedValue(strategy = GenerationType.IDENTITY) private Long logInId;
+	 * private String userName; private Long password;
+	 */
 	
 
 }

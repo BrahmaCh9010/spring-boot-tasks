@@ -7,13 +7,14 @@ import javax.persistence.Id;
 
 import lombok.Data;
 
-@Entity
-@Data
+//@Entity
+//@Data
 public class Project {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String name;
-	private String description;
-	private String technology;
+	/*
+	 * @Id
+	 * 
+	 * @GeneratedValue(strategy = GenerationType.IDENTITY) private String name;
+	 * private String description; private String technology;
+	 */
 }

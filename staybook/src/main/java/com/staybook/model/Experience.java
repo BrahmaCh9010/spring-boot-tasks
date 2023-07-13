@@ -9,15 +9,14 @@ import javax.persistence.Id;
 
 import lombok.Data;
 
-@Entity
-@Data
+//@Entity
+//@Data
 public class Experience {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String company;
-	private String jobrole;
-	private String period;
-	private String location;
-	private List<String> responsibilites;
+	/*
+	 * @Id
+	 * 
+	 * @GeneratedValue(strategy = GenerationType.IDENTITY) private String company;
+	 * private String jobrole; private String period; private String location;
+	 * private List<String> responsibilites;
+	 */
 }

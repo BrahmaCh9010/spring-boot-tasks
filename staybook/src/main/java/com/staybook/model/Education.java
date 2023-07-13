@@ -7,16 +7,15 @@ import javax.persistence.Id;
 
 import lombok.Data;
 
-@Entity
-@Data
+//@Entity
+//@Data
 public class Education {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String name;
-	private String degree;
-	private String majors;
-	private String period;
-	private String location;
-	private String gpa;
+	/*
+	 * @Id
+	 * 
+	 * @GeneratedValue(strategy = GenerationType.IDENTITY) private String name;
+	 * private String degree; private String majors; private String period; private
+	 * String location; private String gpa;
+	 */
 }
